@@ -1,7 +1,39 @@
-## S1: Auto Annotation - Normal Flow 1 
-Visit the auto annotate page, clear the input number '0' and enter '50'. Visit the task panel to see whether there is a task and stop it. Enter '5' to see whether there are 5 images in Annotated Data page.
-1. Go to `Auto Annotate` page, set the number to be 50, and start auto annotation. Task center component should now have 1 task in it.
-2. Wait for 10 seconds, stop the task center. There should be a text suggest "No task is running now."
-3. Go to `Auto Annotate` page, set the number to be 5, and start auto annotation. Task center component should now have 1 task in it(Actual: Could not find element: [data-test=task-panel-item-name])
-4. Wait for 10 seconds, the task center should be empty.(Actual: There are many delayed tasks)
-5. Go back to `Annotated` page. There should be 5 images in it. (Actual: There are 8 images in it)
+# Auto Annotation
+
+## Default 
+
+| Action                                                        | Expectation                                                  |
+| ------------------------------------------------------------  | ------------------------------------------------------------ |
+| Navigate to `Auto Annotate` page                              | Expect 0 task in the task panel                              |
+| Delete the default input number 0 and input 5                 | 
+| Click on `START AUTO ANNOTATION`, wait for the task panel.    | Expect 1 task in the task panel                              |
+| Click on `Annotated Data` under `Inspect Data`                | Expect to see 5 images
+
+
+## S1: Delete the only one task
+
+| Action                                                       | Expectation                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Navigate to `Auto Annotate` page                             | Expect 0 task in the task panel                              |
+| Delete the default input number 0 and input 50               | Expect 0 task in the task panel                              |
+| Click on `START AUTO ANNOTATION`, wait for the task panel.   | Expect 1 task in the task panel                              |
+| Click the `Task Panel` icon and delete the task              | Expect 0 task in the task panel                              |
+
+
+## S2: Input an out-of-bounds number 
+
+| Action                                                        | Expectation                                                  |
+| -------------------------------------------------------       | ------------------------------------------------------------ |
+| Navigate to `Auto Annotate` page                              | Expect 0 task in the task panel                              |
+| Delete the default input number 0 and input 9999              | Expect run 1 task with the length of the dataset 
+| Click on `START AUTO ANNOTATION`, wait for the task panel.    | Expect 1 task in the task panel                              |
+
+
+## S3: Input an String
+
+| Action                                                        | Expectation                                                  |
+| -------------------------------------------------------       | ------------------------------------------------------------ |
+| Navigate to `Auto Annotate` page                              | Expect 0 task in the task panel                              |
+| Delete the default input number 0 and input "abc"             | Expect prompt: Auto annotation failed to start
+| Click the `Task Panel` icon and delete the task               | Expect 0 task in the task panel                              |
+ 
