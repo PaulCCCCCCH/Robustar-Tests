@@ -62,6 +62,40 @@
 | Navigate to `Auto Annotate` page                              | Expect 0 task in the task panel                              |
 | Delete the default input number 0 and input 9.9               | Expect 1 task in the task panel                              |
 | Click on `START AUTO ANNOTATION`, wait for the task panel.    | Expect 0 task in the task panel                              |
-| Click the `Task Panel` icon                                   | Expect to have text "No task is running now.                 |
+| Click the `Task Panel` icon                                   | Expect to have text "No task is running now. "               |
                                                                                   
  
+
+## S6: Test Start index be negative number
+
+| Action                                                        | Expectation                                                  |
+| -------------------------------------------------------       | ------------------------------------------------------------ |
+| Navigate to `Auto Annotate` page                              | Expect 0 task in the task panel                              |
+| Delete the default input number 0 and input -1                | Expect 1 task in the task panel                              |
+| Click on `START AUTO ANNOTATION`, wait for the task panel.    | Expect 0 task in the task panel                              |
+| Click the `Task Panel` icon                                   | Expect to have text "No task is running now."                |
+                                                                                  
+
+## S7: Test End index be less than -1
+
+| Action                                                        | Expectation                                                  |
+| -------------------------------------------------------       | ------------------------------------------------------------ |
+| Navigate to `Auto Annotate` page                              | Expect 0 task in the task panel                              |
+| Delete the default input number 0 and input -2                | Expect 1 task in the task panel                              |
+| Click on `START AUTO ANNOTATION`, wait for the task panel.    | Expect 0 task in the task panel                              |
+| Click the `Task Panel` icon                                   | Expect to have text "No task is running now."                |
+                                               
+
+
+## S8: Test End index be less than Start index
+
+| Action                                                        | Expectation                                                  |
+| -------------------------------------------------------       | ------------------------------------------------------------ |
+| Navigate to `Auto Annotate` page                              | Expect 0 task in the task panel                              |
+| Delete the start index default 0 and input 99999              | Expect 0 task in the task panel                              |
+| Delete the end index default -1 and input 99998               | Expect 1 task in the task panel                              |
+| Click on `START AUTO ANNOTATION`, wait for the task panel.    | Expect 0 task in the task panel                              |
+| Click the `Task Panel` icon                                   | Expect to have text "No task is running now."                |
+
+
+                                               
